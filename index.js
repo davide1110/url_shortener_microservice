@@ -28,16 +28,16 @@ app.post('/api/shorturl', (req, res) => {
     }
     let key = getRandomNumber();
     urls.set(key, url);
-    res.json({original_url: url, short_url: key});
+    res.json({ original_url : url, short_url : key});
 });
 function getRandomNumber() {
     return Math.floor(Math.random() * MAX);
 
 }
 
-app.get('/api/shorturl/?:url', (req, res) => {
+app.get('/api/shorturl/:short_url', (req, res) => {
    // console.log(urls);
-   let param = parseInt(req.params.url);
+   let param = parseInt(req.params.short_url);
     if(urls.has(param)) {
     res.redirect(urls.get(param));
     return;    
@@ -46,8 +46,9 @@ app.get('/api/shorturl/?:url', (req, res) => {
 });
 
 function isValidUrl(url) {
-    let protocolRegExp = new RegExp("(?:http:\/\/www|https:\/\/www)");
-    let domainRegExp = new RegExp("(?:.com|.eu.|.it)");
-    let result = protocolRegExp.test(url) && domainRegExp.test(url);
-    return result;
+    let protocolRegExp = new RegExp("(?:http:\/\/|https:\/\/)");
+    //let domainRegExp = new RegExp("(?:.com|.eu.|.it|.org)");
+    //let result = protocolRegExp.test(url) && domainRegExp.test(url);
+   // return result;
+   return protocolRegExp.test(url);
 }
