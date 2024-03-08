@@ -1,0 +1,26 @@
+{
+  "name": "url_shortener_microservice",
+  "version": "1.0.0",
+  "description": "Url shortener for freecodecamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demon": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davide1110/url_shortener_microservice.git"
+  },
+  "author": "Davide Grasso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davide1110/url_shortener_microservice/issues"
+  },
+  "homepage": "https://github.com/davide1110/url_shortener_microservice#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "nodemon": "^3.1.0"
+  }
+}
